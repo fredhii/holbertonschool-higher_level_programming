@@ -10,7 +10,7 @@
   <h3 align="center">0x00. Python - Hello, World</h3>
 
   <p align="center">
-        <em>look up for words</em>
+        <em>Python basics</em>
     <br /><br />
     <a href="https://github.com/fredhii/Python_Projects/issues">Report Bug</a>
     ·
@@ -19,7 +19,7 @@
 </p>
 
 
-### Usage python & shell scripts
+### Usage python scripts
 ```sh
 ./file.py
 ```
