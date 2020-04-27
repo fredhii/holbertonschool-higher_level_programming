@@ -18,10 +18,11 @@ int check_cycle(listint_t *list)
 
 	while (slow_p != NULL && fast_p->next != NULL)
 	{
-		if (slow_p == fast_p)
-			return (1);
 		slow_p = slow_p->next;
 		fast_p = fast_p->next->next;
+		if (slow_p == fast_p)
+			return (1);
+
 	}
 
 	return (0);
