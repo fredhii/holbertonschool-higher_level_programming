@@ -32,7 +32,7 @@ int is_palindrome(listint_t **head)
 	listint_t *sta, *end;
 	int len;
 
-	if (*head == NULL || (*head)->next == NULL)
+	if (*head == NULL)
 		return (1);
 	sta = *head;
 	end = reverse_listint(&*head);
@@ -46,10 +46,10 @@ int is_palindrome(listint_t **head)
 		len /= 2;
 	else
 	{
-		len += 1;
+		len -= 1;
 		len /= 2;
 	}
-	while (len > 0)
+	while (len > 0 && sta && end)
 	{
 		if (sta->n != end->n)
 			return (0);
