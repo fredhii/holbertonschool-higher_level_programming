@@ -49,7 +49,7 @@ int is_palindrome(listint_t **head)
 		len += 1;
 		len /= 2;
 	}
-	while (len >= 0)
+	while (len > 0)
 	{
 		if (sta->n != end->n)
 			return (0);
