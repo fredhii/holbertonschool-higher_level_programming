@@ -41,6 +41,7 @@ int is_palindrome(listint_t **head)
 		sta = sta->next;
 
 	sta = *head;
+	len--;
 	if (len % 2 == 0)
 		len /= 2;
 	else
