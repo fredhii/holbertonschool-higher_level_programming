@@ -18,8 +18,8 @@
   </p>
 </p>
 
-### Learn more
-[Tuples](https://docs.python.org/3.4/tutorial/datastructures.html#tuples-and-sequences)
+### Learn more about
+[Tuples](https://docs.python.org/3.4/tutorial/datastructures.html#tuples-and-sequences)  
 [Lists](https://docs.python.org/3.4/tutorial/introduction.html#lists)
 
 ### Usage python scripts
