@@ -12,9 +12,9 @@
   <p align="center">
         <em>Lists & Tuples</em>
     <br /><br />
-    <a href="https://github.com/fredhii/Python_Projects/issues">Report Bug</a>
+    <a href="https://github.com/fredhii/holbertonschool-higher_level_programming/issues">Report Bug</a>
     ·
-    <a href="https://github.com/fredhii/Python_Projects/issues">Request Feature</a>
+    <a href="https://github.com/fredhii/holbertonschool-higher_level_programming/issues">Request Feature</a>
   </p>
 </p>
 

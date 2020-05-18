@@ -7,10 +7,10 @@
 
 <p align="center">
   <img src="https://i.imgur.com/2JT0Ec0.png" width="80" height="80">
-  <h3 align="center">0x04. Python - More Data Structures: Set, Dictionary</h3>
+  <h3 align="center">0x05. Python - Exceptions</h3>
 
   <p align="center">
-        <em>Dictionaries & Data structures</em>
+        <em>Exceptions</em>
     <br /><br />
     <a href="https://github.com/fredhii/holbertonschool-higher_level_programming/issues">Report Bug</a>
     ·
