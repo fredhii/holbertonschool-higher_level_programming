@@ -28,18 +28,10 @@ def matrix_mul(m_a, m_b):
     if not all(type(i) in [int, float]
                for i in [aux for row in m_b for aux in row]):
         raise TypeError("m_b should contain only integers or floats")
-    list_len = 0
-    for row in m_a:
-        if list_len == 0:
-            list_len = len(row)
-        elif list_len != len(row):
-            raise TypeError("each row of m_a must be of the same size")
-    list_len = 0
-    for row in m_b:
-        if list_len == 0:
-            list_len = len(row)
-        elif list_len != len(row):
-            raise TypeError("each row of m_b must be of the same size")
+    if not all(len(m_a[0]) == len(row) for row in m_a):
+        raise TypeError("each row of m_a must be of the same size")
+    if not all(len(m_b[0]) == len(row) for row in m_b):
+        raise TypeError("each row of m_b must be of the same size")
 
     new_m = []
     for row in range(len(m_a)):
