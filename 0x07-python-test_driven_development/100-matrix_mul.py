@@ -32,17 +32,15 @@ def matrix_mul(m_a, m_b):
         raise TypeError("each row of m_a must be of the same size")
     if not all(len(m_b[0]) == len(row) for row in m_b):
         raise TypeError("each row of m_b must be of the same size")
-
+    if len(m_a[0]) != len(m_b):
+        raise ValueError("m_a and m_b can't be multiplied")
     new_m = []
     for row in range(len(m_a)):
         new_r = []
         for col in range(len(m_b[0])):
             aux = 0
             for i in range(len(m_a[0])):
-                try:
                     aux += m_a[row][i] * m_b[i][col]
-                except:
-                    raise ValueError("m_a and m_b can't be multiplied")
             new_r.append(aux)
         new_m.append(new_r)
 
