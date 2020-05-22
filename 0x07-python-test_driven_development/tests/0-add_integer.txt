@@ -1,0 +1,48 @@
+# ===============================================
+# Unit test 0-add_integer
+# ===============================================
+
+
+import module:
+       >>> add_integer = __import__("0-add_integer").add_integer
+
+Add two integer:
+       >>> add_integer(7, 7)
+       14
+
+Add two floats:
+       >>> add_integer(7)
+       105
+
+Add two floats:
+       >>> add_integer(7.0, 7.0)
+       14
+
+Add float with integer:
+       >>> add_integer(7.0, 7)
+       14
+
+Add string casted to float:
+       >>> add_integer(float("hi"))
+       Traceback (most recent call last):
+       ValueError: could not convert string to float: 'hi'
+
+Add strings:
+       >>> add_integer("te", "st")
+       Traceback (most recent call last):
+       TypeError: a must be an integer
+
+Add b as string:
+       >>> add_integer(7, "test")
+       Traceback (most recent call last):
+       TypeError: b must be an integer
+
+Add None:
+       >>> add_integer()
+       Traceback (most recent call last):
+       TypeError: add_integer() missing 1 required positional argument: 'a'
+
+Add three numbers:
+       >>> add_integer(7, 7, 7)
+       Traceback (most recent call last):
+       TypeError: add_integer() takes from 1 to 2 positional arguments but 3 were given
