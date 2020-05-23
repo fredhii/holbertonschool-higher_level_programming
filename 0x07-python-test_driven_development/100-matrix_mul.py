@@ -40,7 +40,7 @@ def matrix_mul(m_a, m_b):
         for col in range(len(m_b[0])):
             aux = 0
             for i in range(len(m_a[0])):
-                    aux += m_a[row][i] * m_b[i][col]
+                aux += m_a[row][i] * m_b[i][col]
             new_r.append(aux)
         new_m.append(new_r)
 

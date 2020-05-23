@@ -6,19 +6,6 @@
 import module:
        >>> lazy_matrix_mul = __import__('101-lazy_matrix_mul').lazy_matrix_mul
 
-Simple matrix:
-       >>> l1 = [[1, 2]]
-       >>> l2 = [[3, 4], [5, 6]]
-       >>> lazy_matrix_mul(l1, l2)
-       array([[13, 16]])
-
-Positive and negative list:
-       >>> l1 = [[1, -2], [-3, 4]]
-       >>> l2 = [[-5, 6], [7, -8]]
-       >>> lazy_matrix_mul(l1, l2)
-       array([[-19,  22],
-              [ 43, -50]])
-
 No arguments:
        >>> lazy_matrix_mul()
        Traceback (most recent call last):
@@ -33,8 +20,82 @@ Three arguments:
        TypeError: lazy_matrix_mul() takes 2 positional arguments but 3 were given
 
 Float matrix:
-    >>> l1 = [[1.2, 5.5, 6.2], [4.66, 12.3, -9.2]]
-    >>> l2 = [[5.0, 3.3], [-2.9, 4.4], [7.2, 4.4]]
-    >>> print(lazy_matrix_mul(l1, l2))
-    [[ 34.69   55.44 ]
-     [-78.61   29.018]]
+       >>> l1 = [[1.2, 5.5, 6.2], [4.66, 12.3, -9.2]]
+       >>> l2 = [[5.0, 3.3], [-2.9, 4.4], [7.2, 4.4]]
+       >>> print(lazy_matrix_mul(l1, l2))
+       [[ 34.69   55.44 ]
+       [-78.61   29.018]]
+
+Simple case:
+       l1 = [[1, 2], [3, 4]]
+	>>> l2 = [[5, 6], [7, 8]]
+       >>> lazy_matrix_mul(l1, l2)
+       [[19, 22], [43, 50]]
+
+Negative numbers:
+       >>> l1 = [[1, -2], [-3, 4]]
+       >>> l2 = [[-5, 6], [7, -8]]
+       >>> lazy_matrix_mul(l1, l2)
+       [[-19, 22], [43, -50]]
+
+No arguments:
+         >>> lazy_matrix_mul()
+         Traceback (most recent call last):
+                   ...
+         TypeError: lazy_matrix_mul() missing 2 required positional arguments: 'm_a' and 'm_b'
+
+Only first argument:
+       >>> l1 = [1, 2, 3]
+       >>> lazy_matrix_mul(l1)
+       Traceback (most recent call last):
+       TypeError: lazy_matrix_mul() missing 1 required positional argument: 'm_b'
+
+Three arguments:
+       >>> l1 = [1, 2, 3]
+       >>> l2 = [1, 2, 3]
+       >>> l3 = [1, 2, 3]
+       >>> lazy_matrix_mul(l1, l2, l3)
+       Traceback (most recent call last):
+       TypeError:lazy_matrix_mul() takes 2 positional arguments but 3 were given
+
+First argument empty:
+       >>> l1 = [[]]
+       >>> l2 =[[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+       >>> lazy_matrix_mul(l1, l2)
+       Traceback (most recent call last):
+       ValueError: shapes (0,) and (3,3) not aligned: 0 (dim 0) != 3 (dim 0)
+
+Second argument empty:
+       >>> l1 = [[1, 2, 3], [2, 3, 4], [4, 5, 6]]
+       >>> l2 = [[]]
+       >>> lazy_matrix_mul(l1, l2)
+       Traceback (most recent call last):
+       ValueError: shapes (3,3) and (0,) not aligned: 3 (dim 1) != 0 (dim 0)
+
+Both arguments empty:
+       >>> l1 = []
+       >>> l2 = []
+       >>> lazy_matrix_mul(l1, l2)
+       Traceback (most recent call last):
+       TypeError: m_a can't be empty
+
+Only one integer:
+       >>> l1 = 1
+       >>> l2 = [2, 3, 4]
+       >>> lazy_matrix_mul(l1, l2)
+       Traceback (most recent call last):
+       TypeError: Object arrays are not currently supported
+
+String as argument:
+       >>> l1 = "hello"
+       >>> l2 = [1, 2, 3]
+       >>> lazy_matrix_mul(l1, l2)
+       Traceback (most recent call last):
+       TypeError: Object arrays are not currently supported
+
+Different sizes:
+       >>> l1 = [[1, 2, 3]. [4, 5, 6]]
+       >>> l2 = [1, 2, 3]
+       >>> lazy_matrix_mul(l1, l2)
+       Traceback (most recent call last):
+       ValueError: shapes (2,3) and (1,3) not aligned: 3 (dim 1) != 3 (dim 0)

@@ -7,8 +7,9 @@ max_integer = __import__('6-max_integer').max_integer
 class TestMaxInteger(unittest.TestCase):
     """ Unit test class """
     def test_ten_scale(self):
-        l  = [10, 20, 30, 40]
-        self.assertEqual(max_integer(l), 40)
+        self.assertEqual(max_integer([10, 20, 30, 40]), 40)
+        self.assertEqual(max_integer([40, 20, 30, 10]), 40)
+        self.assertEqual(max_integer([10, 20, 77, 40, 7]), 77)
 
     def test_negative_charge(self):
         l  = [-23, -48, -13, -7]
@@ -33,6 +34,7 @@ class TestMaxInteger(unittest.TestCase):
     def test_string(self):
         l = "testify"
         self.assertEqual(max_integer(l), 'y')
+
 
     def test_mix_list(self):
         l = ['T', 7, 3.0]
