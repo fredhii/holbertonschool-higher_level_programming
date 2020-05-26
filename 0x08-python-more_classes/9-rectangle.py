@@ -9,20 +9,24 @@ class Rectangle:
     print_symbol = "#"
 
     def __init__(self, width=0, height=0):
+        """ Initialize rectangle """
+        Rectangle.number_of_instances += 1
         self.height = height
         self.width = width
-        Rectangle.number_of_instances += 1
 
     @classmethod
     def square(cls, size=0):
+        """ Returns a new rectangle/square """
         return cls(size, size)
 
     @property
     def height(self):
+        """ Getter """
         return self.__height
 
     @height.setter
     def height(self, value):
+        """ Setter """
         if not isinstance(value, int):
             raise TypeError("height must be an integer")
         if value < 0:
@@ -31,10 +35,12 @@ class Rectangle:
 
     @property
     def width(self):
+        """ Getter """
         return self.__width
 
     @width.setter
     def width(self, value):
+        """ Setter """
         if not isinstance(value, int):
             raise TypeError("width must be an integer")
         if value < 0:
@@ -42,14 +48,17 @@ class Rectangle:
         self.__width = value
 
     def area(self):
+        """ Return rectangle area """
         return self.__width * self.__height
 
     def perimeter(self):
+        """ Return rectangle perimeter """
         if self.__width == 0 or self.__height == 0:
             return 0
         return 2 * (self.__width + self.__height)
 
     def __str__(self):
+        """ Prints square """
         rect = ""
         if self.__width == 0 or self.__height == 0:
             return rect
@@ -61,14 +70,17 @@ class Rectangle:
         return rect
 
     def __repr__(self):
+        """ Return rectangle size """
         return "Rectangle({:d}, {:d})".format(self.__width, self.__height)
 
     def __del__(self):
+        """ Deletes a rectangle """
         Rectangle.number_of_instances -= 1
         print("Bye rectangle...")
 
     @staticmethod
     def bigger_or_equal(rect_1, rect_2):
+        """ Compare two rectangles """
         if isinstance(rect_1, Rectangle) is False:
             raise TypeError("rect_1 must be an instance of Rectangle")
         if isinstance(rect_2, Rectangle) is False:
