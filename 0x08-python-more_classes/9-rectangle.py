@@ -49,29 +49,29 @@ class Rectangle:
 
     def area(self):
         """ Return rectangle area """
-        return self.__width * self.__height
+        return self.width * self.height
 
     def perimeter(self):
         """ Return rectangle perimeter """
-        if self.__width == 0 or self.__height == 0:
+        if self.width == 0 or self.height == 0:
             return 0
-        return 2 * (self.__width + self.__height)
+        return 2 * (self.width + self.height)
 
     def __str__(self):
         """ Prints square """
         rect = ""
-        if self.__width == 0 or self.__height == 0:
+        if self.width == 0 or self.height == 0:
             return rect
-        for i in range(self.__height):
-            for j in range(self.__width):
+        for i in range(self.height):
+            for j in range(self.width):
                 rect += str(self.print_symbol)
-            if (i < self.__height - 1):
+            if (i < self.height - 1):
                 rect += '\n'
         return rect
 
     def __repr__(self):
         """ Return rectangle size """
-        return "Rectangle({:d}, {:d})".format(self.__width, self.__height)
+        return "Rectangle({:d}, {:d})".format(self.width, self.height)
 
     def __del__(self):
         """ Deletes a rectangle """
