@@ -10,7 +10,7 @@
   <h3 align="center">0x0A. Python - Inheritance</h3>
 
   <p align="center">
-        <em>Objects</em>
+        <em>Inheritance</em>
     <br /><br />
     <a href="https://github.com/fredhii/holbertonschool-higher_level_programming/issues">Report Bug</a>
     ·
