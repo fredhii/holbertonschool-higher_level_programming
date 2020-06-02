@@ -3,6 +3,6 @@
 
 
 class MyList(list):
-
+    """ Class that inherit from list """
     def print_sorted(self):
         print(sorted(self))
