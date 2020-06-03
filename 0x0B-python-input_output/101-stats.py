@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """ Read from standard input and prints statistics """
-import fileinput
+import sys
 
 
 def print_stats(file_size, dict):
@@ -30,7 +30,7 @@ dict = {'200': 0,
 """ Read from line """
 """ ============================================= """
 try:
-    for line in fileinput.input():
+    for line in sys.stdin:
         if count == 10:
             print_stats(file_size, dict)
             count = 1
