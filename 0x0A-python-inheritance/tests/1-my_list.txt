@@ -10,6 +10,33 @@ Sorted list:
        >>> l = MyList([1, 2, 3])
        >>> print(l)
        [1, 2, 3]
+       >>> l.print_sorted()
+       [1, 2, 3]
+
+Random list:
+       >>> l = MyList()
+       >>> l.append(10)
+       >>> l.append(6)
+       >>> l.append(7)
+       >>> l.append(9)
+       >>> l.append(8)
+       >>> l.append(5)
+       >>> print(l)
+       [10, 6, 7, 9, 8, 5]
+       >>> l.print_sorted()
+       [5, 6, 7, 8, 9, 10]
+
+Negative list:
+	 >>> l = MyList()
+	 >>> l.append(-5)
+	 >>> l.append(-7)
+	 >>> l.append(-23)
+	 >>> l.append(-2)
+	 >>> l.append(-1)
+	 >>> print(l)
+	 [-5, -7, -23, -2, -1]
+	 >>> l.print_sorted()
+	 [-23, -7, -5, -2, -1]
 
 Empty list:
        >>> l = MyList(None)
