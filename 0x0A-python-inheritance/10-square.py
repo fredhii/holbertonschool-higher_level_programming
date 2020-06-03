@@ -8,5 +8,5 @@ class Square(Rectangle):
     def __init__(self, size):
         """ Define a new rectangle """
         if self.integer_validator("size", size):
-            self.__size = sizeif self.integer
+            self.__size = size
         super().__init__(size, size)
