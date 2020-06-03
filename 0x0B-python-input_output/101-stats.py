@@ -38,7 +38,10 @@ try:
             count += 1
 
         split_line = line.split()
-        file_size += int(split_line[-1])
+        try:
+            file_size += int(split_line[-1])
+        except (IndexError, ValueError):
+            pass
 
         if split_line[-2] in dict:
             dict[split_line[-2]] += 1
