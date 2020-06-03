@@ -8,7 +8,7 @@ def print_stats(file_size, dict):
     print("File size: {}".format(file_size))
     for key in dict:
         if dict[key] != 0:
-            print("{} {}".format(key, dict[key]))
+            print("{}: {}".format(key, dict[key]))
 
 
 """ ============================================= """
