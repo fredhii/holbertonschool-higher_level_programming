@@ -42,6 +42,7 @@ try:
 
         if split_line[-2] in dict:
             dict[split_line[-2]] += 1
+    print_stats(file_size, dict)
 except KeyboardInterrupt:
     print_stats(file_size, dict)
     raise
