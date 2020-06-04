@@ -1,17 +1,17 @@
 #!/usr/bin/python3
 """ Read from standard input and prints statistics """
 
+
+def print_stats(file_size, dict):
+    """ Print statistics """
+    print("File size: {}".format(file_size))
+    for key in dict:
+        if dict[key] != 0:
+            print("{}: {}".format(key, dict[key]))
+
+
 if __name__ == "__main__":
     import sys
-
-
-    def print_stats(file_size, dict):
-        """ Print statistics """
-        print("File size: {}".format(file_size))
-        for key in dict:
-            if dict[key] != 0:
-                print("{}: {}".format(key, dict[key]))
-
 
     """ ============================================= """
     """ Variables """
@@ -26,7 +26,6 @@ if __name__ == "__main__":
             '404': 0,
             '405': 0,
             '500': 0}
-
 
     """ ============================================= """
     """ Read from line """
