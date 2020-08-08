@@ -15,10 +15,14 @@ if __name__ == "__main__":
     cr.execute("SELECT cities.name FROM cities\
                 INNER JOIN states ON cities.state_id = states.id\
                 WHERE states.name = %s\
-                ORDER BY cities.id",
-                (argv[4], ))
+                ORDER BY cities.id", (argv[4], ))
     cities = cr.fetchall()
+    first = 0
     for city in cities:
-        print(city)
+        if first != 0:
+            print(", ", end="")
+        print("%s" % city, end="")
+        first += 1
+    print("")
     cr.close()
     db.close()

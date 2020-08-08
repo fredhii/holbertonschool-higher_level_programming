@@ -14,8 +14,7 @@ if __name__ == "__main__":
     cr = db.cursor()
     cr.execute("SELECT * from states\
                 WHERE name LIKE %s\
-                ORDER BY states.id",
-                (argv[4],))
+                ORDER BY states.id", (argv[4],))
     states = cr.fetchall()
     for state in states:
         print(state)

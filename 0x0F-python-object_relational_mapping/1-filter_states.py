@@ -17,6 +17,7 @@ if __name__ == "__main__":
                 ORDER BY states.id")
     states = cr.fetchall()
     for state in states:
-        print(state)
+        if state[1][0] == 'N':
+            print(state)
     cr.close()
     db.close()
