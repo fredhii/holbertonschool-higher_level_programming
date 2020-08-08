@@ -1,4 +1,3 @@
-  
 #!/usr/bin/python3
 '''
 akes in arguments and displays all values in the states table of

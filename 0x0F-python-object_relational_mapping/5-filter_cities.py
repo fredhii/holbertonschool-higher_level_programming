@@ -1,4 +1,3 @@
-  
 #!/usr/bin/python3
 '''
 akes in the name of a state as an argument and lists all
