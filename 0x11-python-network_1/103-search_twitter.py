@@ -3,25 +3,36 @@
 Script that takes in 3 strings and sends a search request to the Twitter API
 """
 if __name__ == "__main__":
+    import sys
+    import base64
     import requests
-    from base64 import b64encode
-    from sys import argv
-    key_secret = argv[1] + ':' + argv[2]
-    base64_encode = b64encode(key_secret.encode()).decode('utf-8')
-    payload = {'grant_type': 'client_credentials'}
-    header = {'Authorization': 'Basic {}'.format(base64_encode),
-              'Content-Type':
-              'application/x-www-form-urlencoded;charset=UTF-8'}
-    r = requests.post('https://api.twitter.com/oauth2/token', headers=header,
-                      data=payload)
-    token = r.json()
-    b = token.get('access_token')
-    header = {'Authorization': 'Bearer {}'.format(b)}
-    payload = {'q': argv[3], 'count': 5}
-    r = requests.get('https://api.twitter.com/1.1/search/tweets.json',
-                     headers=header, params=payload)
-    response = r.json()
-    tweets = response.get('statuses')
-    for tweet in tweets:
-        print('[{}] {} by {}'.format(tweet.get('id'), tweet.get('text'),
-                                     tweet.get('user').get('name')))
+    url = "https://api.twitter.com/oauth2/token"
+    token = "{}:{}".format(sys.argv[1], sys.argv[2]).encode("ascii")
+    token = base64.b64encode(token).decode("utf-8")
+    headers = {
+        "Authorization": "Basic {}".format(token),
+        "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
+    }
+    payload = {"grant_type": "client_credentials"}
+    r = requests.post(url, headers=headers, data=payload)
+    bearer = r.json().get("access_token")
+
+    # Make search request
+    url = "https://api.twitter.com/1.1/search/tweets.json"
+    headers = {
+        "Authorization": "Bearer {}".format(bearer)
+    }
+    params = {
+        "q": sys.argv[3],
+        "count": "5"
+    }
+    url = "https://api.twitter.com/1.1/search/tweets.json"
+    tweets = requests.get(url, headers=headers, params=params)
+
+    # Print matched tweets
+    tweets = tweets.json().get("statuses")
+    for t in tweets:
+        tweet_id = t.get("id")
+        tweet_text = t.get("text")
+        tweet_author = t.get("user").get("name")
+        print("[{}] {} by {}".format(tweet_id, tweet_text, tweet_author))
