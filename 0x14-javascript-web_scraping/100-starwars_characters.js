@@ -1,15 +1,24 @@
 #!/usr/bin/node
-const request = require('request');
-const url = 'https://swapi.co/api/films/' + process.argv[2];
-request(url, function (error, response, body) {
-  if (!error) {
-    const characters = JSON.parse(body).characters;
-    characters.forEach((character) => {
-      request(character, function (error, response, body) {
-        if (!error) {
-          console.log(JSON.parse(body).name);
+let request = require('request');
+let episodeNumber = process.argv[2];
+let url = 'http://swapi.co/api/films/' + episodeNumber;
+request(url, function (err, response, body) {
+  if (err) {
+    console.log(err);
+  } else if (response.statusCode === 200) {
+    let allChars = JSON.parse(body).characters;
+    for (let c in allChars) {
+      let charUrl = allChars[c];
+      request(charUrl, function (err, response, body) {
+        if (err) {
+          console.log(err);
+        } else {
+          let currentChar = JSON.parse(body);
+          console.log(currentChar.name);
         }
       });
-    });
+    }
+  } else {
+    console.log('Wrong status code');
   }
 });
