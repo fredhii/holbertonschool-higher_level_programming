@@ -3,7 +3,7 @@ const base64 = require('base-64');
 const request = require('request');
 const utf8 = require('utf8');
 
-let promise = new Promise(function (resolve, reject) {
+const promise = new Promise(function (resolve, reject) {
   const token = utf8.decode(base64.encode(`${process.argv[2]}:${process.argv[3]}`));
   const options = {
     url: 'https://api.twitter.com/oauth2/token',
